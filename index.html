@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jwt测试</title>
+</head>
+<body>
+<script type="text/javascript">
+	let header={
+		typ:'jwt',
+		alg:'hs256'
+	};
+	let payload={
+		name:'joe'
+		age:12,
+		role:'admin'
+	};
+	//asume there is a base64
+	let hp=new base64().encode(header+'.'+payload);
+	
+	//ausme there is a encrypt-hs256
+
+	let signature=encrypt(hp,'secret');//secret is the private key
+
+	let jwt=base64(header)+'.'+hp+'.'+signature;
+	
+</script>
+</body>
+</html>
